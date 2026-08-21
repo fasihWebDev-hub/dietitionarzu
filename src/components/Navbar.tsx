@@ -43,10 +43,10 @@ export default function Navbar() {
       <div className="w-full flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="group flex flex-col items-start z-50">
-          <span className={cn("font-serif text-2xl tracking-widest transition-colors", isScrolled ? "text-forest" : "text-ivory")}>
+          <span className={cn("font-serif text-2xl tracking-widest transition-colors", (isScrolled || isMobileMenuOpen) ? "text-forest" : "text-ivory")}>
             ARZU
           </span>
-          <span className={cn("text-xs uppercase tracking-[0.2em] mt-1 transition-opacity group-hover:opacity-100", isScrolled ? "text-forest/70" : "text-ivory/80")}>
+          <span className={cn("text-xs uppercase tracking-[0.2em] mt-1 transition-opacity group-hover:opacity-100", (isScrolled || isMobileMenuOpen) ? "text-forest/70" : "text-ivory/80")}>
             Nutritionist
           </span>
         </Link>
@@ -74,7 +74,7 @@ export default function Navbar() {
             Book Consultation
           </Link>
           <button
-            className={cn("md:hidden transition-colors", isScrolled ? "text-forest" : "text-ivory")}
+            className={cn("md:hidden transition-colors", (isScrolled || isMobileMenuOpen) ? "text-forest" : "text-ivory")}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
