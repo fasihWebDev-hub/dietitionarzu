@@ -43,10 +43,10 @@ export default function Navbar() {
       <div className="w-full flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="group flex flex-col items-start z-50">
-          <span className="font-serif text-2xl tracking-widest text-forest">
+          <span className={cn("font-serif text-2xl tracking-widest transition-colors", isScrolled ? "text-forest" : "text-ivory")}>
             ARZU
           </span>
-          <span className="text-xs uppercase tracking-[0.2em] text-forest/70 mt-1 transition-opacity group-hover:opacity-100">
+          <span className={cn("text-xs uppercase tracking-[0.2em] mt-1 transition-opacity group-hover:opacity-100", isScrolled ? "text-forest/70" : "text-ivory/80")}>
             Nutritionist
           </span>
         </Link>
@@ -57,7 +57,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm uppercase tracking-widest text-forest/80 hover:text-forest transition-colors relative group"
+              className={cn("text-sm uppercase tracking-widest transition-colors relative group", isScrolled ? "text-forest/80 hover:text-forest" : "text-ivory/80 hover:text-ivory")}
             >
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-gold transition-all duration-300 group-hover:w-full"></span>
@@ -69,12 +69,12 @@ export default function Navbar() {
         <div className="flex items-center space-x-6 z-50">
           <Link
             href="#contact"
-            className="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm uppercase tracking-wider bg-forest text-ivory hover:bg-forest/90 transition-colors border border-forest hover:border-forest/90"
+            className={cn("hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm uppercase tracking-wider transition-colors border", isScrolled ? "bg-forest text-ivory border-forest hover:bg-forest/90" : "bg-transparent text-ivory border-ivory hover:bg-ivory/10 backdrop-blur-sm")}
           >
             Book Consultation
           </Link>
           <button
-            className="md:hidden text-forest"
+            className={cn("md:hidden transition-colors", isScrolled ? "text-forest" : "text-ivory")}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}

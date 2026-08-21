@@ -19,7 +19,7 @@ export default function Home() {
     const ctx = gsap.context(() => {
       // 1. Hero Image Clip Path Reveal
       gsap.to(".hero-clip", {
-        clipPath: "inset(0% 0% 0% 0%)",
+        clipPath: "inset(15% 10% 15% 10%)",
         ease: "power3.inOut",
         scrollTrigger: {
           trigger: ".hero-section",
@@ -102,13 +102,13 @@ export default function Home() {
           className="hero-clip absolute inset-0 z-0 bg-cover bg-center" 
           style={{
             backgroundImage: "url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2053&auto=format&fit=crop')",
-            clipPath: "inset(15% 10% 15% 10%)"
+            clipPath: "inset(0% 0% 0% 0%)"
           }}
         >
-          <div className="absolute inset-0 bg-forest/30 backdrop-blur-[2px]"></div>
+          <div className="absolute inset-0 bg-forest/60 backdrop-blur-sm"></div>
         </div>
 
-        <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl mx-auto mix-blend-difference text-ivory">
+        <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl mx-auto text-ivory">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
