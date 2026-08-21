@@ -29,17 +29,18 @@ export default function Navbar() {
   });
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={cn(
-        "fixed z-50 transition-all duration-500 left-0 right-0 mx-auto",
-        isScrolled
-          ? "top-4 max-w-5xl bg-ivory/95 backdrop-blur-md border border-forest/10 py-3 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-8"
-          : "top-0 max-w-7xl bg-transparent py-6 px-6 md:px-12"
-      )}
-    >
+    <>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className={cn(
+          "fixed z-50 transition-all duration-500 left-0 right-0 mx-auto",
+          (isScrolled && !isMobileMenuOpen)
+            ? "top-4 max-w-5xl bg-ivory/95 backdrop-blur-md border border-forest/10 py-3 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-8"
+            : "top-0 max-w-7xl bg-transparent py-6 px-6 md:px-12"
+        )}
+      >
       <div className="w-full flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="group flex flex-col items-start z-50">
@@ -82,6 +83,8 @@ export default function Navbar() {
         </div>
       </div>
 
+      </motion.nav>
+
       {/* Mobile Menu */}
       <div
         className={cn(
@@ -107,6 +110,6 @@ export default function Navbar() {
           Book Consultation
         </Link>
       </div>
-    </motion.nav>
+    </>
   );
 }
